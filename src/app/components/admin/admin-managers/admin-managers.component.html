@@ -1,0 +1,9 @@
+<app-header-admin></app-header-admin>
+<app-sidebar-admin (onToggleSideNav)="onToggleSideNav($event)">
+</app-sidebar-admin>
+<app-body-admin-managers
+    [collapsed]="isSideNavCollapsed"
+    [screenWidth]="screenWidth"
+>
+</app-body-admin-managers>
+<app-footer-admin></app-footer-admin>

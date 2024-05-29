@@ -1,0 +1,30 @@
+<mat-toolbar class="mainheader">
+    <mat-toolbar-row>
+  
+      <img src="assets/images/itserv.png" alt="My App Logo" style="width: 100px; height: 50px;" />
+  
+   <p class="brandname"> IT SERV Company</p>
+   <div class="spacer">
+    
+    </div>
+    <span>{{user.firstName}}{{user.lastName}}</span>
+    
+        <a class="nav-link dropdown-toggle d-flex align-items-center" routerLink="#" id="navbarDropdownMenuLink"
+          role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+          <img src="assets/images/user.png" class="rounded-circle"
+            height="22" alt="Avatar" loading="lazy" />
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li>
+            <a class="dropdown-item" routerLink="#">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Settings</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+    <div class="time">{{ currentTime }}</div>
+    </mat-toolbar-row>
+</mat-toolbar>

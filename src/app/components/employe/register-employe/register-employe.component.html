@@ -1,0 +1,243 @@
+<div class="login-body">
+    <div class="bg-transparent border border-transparent card container col-xxl-6 col-xl-7 col-lg-8 col-md-8 col-sm-12 col-xs-12 col-11">
+        <mat-card class="example-card">
+            <img mat-card-image class="img-card" src="../../../../assets/images/itserv.png" alt="IT-SERV">
+            <mat-card-header class="justify-content-center">
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title class="pt-2">SIGN UP</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="example-input-wrapper">
+                    <label for="duration">Animation duration:</label>
+                    <input id="duration" value="2000" type="number" min="0" step="100" #duration>
+                </div>
+                <ng-container [ngSwitch]="stepperOrientation | async">
+                  <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-label="Color selection">
+                    <mat-chip-option *ngSwitchCase="'horizontal'" color="primary">
+                      Make your screen smaller to see a vertical stepper
+                    </mat-chip-option>
+                    <mat-chip-option *ngSwitchCase="'vertical'" color="accent">
+                      Make your screen larger to see a horizontal stepper
+                    </mat-chip-option>
+                  </mat-chip-listbox>
+                  
+                </ng-container>
+                <mat-stepper [orientation]="(stepperOrientation | async)!" labelPosition="bottom" class="mat-stepper-s" #stepper [animationDuration]="duration.value">
+                    <mat-step [stepControl]="firstFormGroup" errorMessage="Step I is required.">
+                      <form [ngSwitch]="stepperOrientation | async" [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Fill out your name</ng-template>
+                        <div *ngSwitchCase="'horizontal'">
+                          <div class="example-form-fields">
+                            <div>
+                              <mat-form-field>
+                                <mat-label>First Name</mat-label>
+                                <input matInput placeholder="First name" formControlName="firstname" required>
+                              </mat-form-field>
+                              <mat-error *ngIf="firstFormGroup.controls['firstname'].hasError('required')
+                              ">{{getErrorFirstName()}}
+                              </mat-error>
+                            </div> 
+                            <div>
+                              <mat-form-field>
+                                  <mat-label>Last Name</mat-label>
+                                  <input matInput placeholder="First name" formControlName="lastname" required>
+                              </mat-form-field>
+                              <mat-error *ngIf="firstFormGroup.controls['lastname'].hasError('required')
+                              ">{{getErrorLastName()}}
+                              </mat-error>
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngSwitchCase="'vertical'">
+                          <div class="example-form-fields-vertical">
+                            <div>
+                              <mat-form-field>
+                                <mat-label>First Name</mat-label>
+                                <input matInput placeholder="First name" formControlName="firstname" required>
+                              </mat-form-field>
+                              <mat-error *ngIf="firstFormGroup.controls['firstname'].hasError('required')
+                              ">{{getErrorFirstName()}}
+                              </mat-error>
+                            </div> 
+                            <div>
+                              <mat-form-field>
+                                  <mat-label>Last Name</mat-label>
+                                  <input matInput placeholder="First name" formControlName="lastname" required>
+                              </mat-form-field>
+                              <mat-error *ngIf="firstFormGroup.controls['lastname'].hasError('required')
+                              ">{{getErrorLastName()}}
+                              </mat-error>
+                            </div>
+                            </div>
+                        </div>
+                        <div>
+                          <button mat-button matStepperNext>Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" errorMessage="Step II is required.">
+                      <form [ngSwitch]="stepperOrientation | async" [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel>Fill out your personal Info</ng-template>
+                        <div *ngSwitchCase="'horizontal'">
+                          <div class="example-form-fields">
+                            <div>
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Ex. Alex@gmail.com" formControlName="email" required>
+                              </mat-form-field>
+                              <mat-error *ngIf="secondFormGroup.controls['email'].hasError('required') ||
+                              secondFormGroup.controls['email'].hasError('email')
+                              ">{{getErrorEmail()}}
+                              </mat-error>
+                            </div> 
+                            <div>
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                              </mat-form-field>
+                              <mat-error *ngIf="secondFormGroup.controls['password'].hasError('required') ||
+                              secondFormGroup.controls['password'].hasError('pattern')" [innerHTML]="getErrorMessagePassword()">
+                              </mat-error>
+                            </div>
+                            <div>
+                              <mat-form-field>
+                                <mat-label>Telephone</mat-label>
+                                <span matPrefix>+216 &nbsp;</span>
+                                <input type="text" matInput placeholder="8 digits Ex. 58414093" formControlName="numTel" 
+                                required>
+                              </mat-form-field>
+                              <mat-error *ngIf="secondFormGroup.controls['numTel'].hasError('required') ||
+                              secondFormGroup.controls['numTel'].hasError('pattern')
+                              ">{{getErrorNumTel()}}
+                              </mat-error>
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngSwitchCase="'vertical'">
+                          <div class="example-form-fields-vertical">
+                            <div>
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Email</mat-label>
+                                <input matInput placeholder="Ex. Alex@gmail.com" formControlName="email" required>
+                              </mat-form-field>
+                              <mat-error *ngIf="secondFormGroup.controls['email'].hasError('required')||
+                              secondFormGroup.controls['email'].hasError('email')
+                              ">{{getErrorEmail()}}
+                              </mat-error>
+                            </div> 
+                            <div>
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Enter your password</mat-label>
+                                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                              </mat-form-field>
+                              <mat-error *ngIf="secondFormGroup.controls['password'].hasError('required') ||
+                              secondFormGroup.controls['password'].hasError('pattern')" [innerHTML]="getErrorMessagePassword()">
+                              </mat-error>
+                            </div>
+                            <div>
+                              <mat-form-field class="example-full-width">
+                                <mat-label>Telephone</mat-label>
+                                <span matPrefix>+216 &nbsp;</span>
+                                <input type="text" matInput placeholder="8 digits Ex. 58414093" formControlName="numTel" 
+                                required>
+                              </mat-form-field>
+                              <mat-error *ngIf="secondFormGroup.controls['numTel'].hasError('required') ||
+                              secondFormGroup.controls['numTel'].hasError('pattern')
+                              ">{{getErrorNumTel()}}
+                              </mat-error>
+                            </div>
+                            </div>
+                        </div>
+                        <div>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext>Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="thirdFormGroup" optional>
+                      <form [ngSwitch]="stepperOrientation | async" [formGroup]="thirdFormGroup">
+                        <ng-template matStepLabel>Additional Information</ng-template>
+                        <div *ngSwitchCase="'horizontal'">
+                        <div class="example-form-fields">
+                        <mat-form-field cl>
+                          <mat-label>Recovey Email</mat-label>
+                          <input type="email" matInput  placeholder="Ex: patx@example.com" formControlName="emailRecuperation"> 
+                        </mat-form-field>
+                        </div>
+                        </div>
+                        <div *ngSwitchCase="'vertical'">
+                          <div>
+                            
+                          <mat-form-field>
+                            <mat-label>Recovey Email</mat-label>
+                            <input type="email" matInput  placeholder="Ex: patx@example.com" formControlName="emailRecuperation"> 
+                          </mat-form-field>
+                          </div>
+                        </div>
+                        <div>
+                          <button mat-button matStepperPrevious>Back</button>
+                          <button mat-button matStepperNext>Next</button>
+                        </div>
+                      </form>
+                    </mat-step>
+                    <mat-step [stepControl]="fourthFormGroup">
+                      <form [ngSwitch]="stepperOrientation | async" [formGroup]="fourthFormGroup">
+                      <ng-template matStepLabel>Last step</ng-template>
+                      <div *ngSwitchCase="'horizontal'">
+                        <div class="example-form-fields">
+                        <mat-form-field>
+                          <mat-label>Adress</mat-label>
+                          <input type="text" matInput placeholder="5,Rue Impass Chahrazed,Menzah 4" formControlName="adresse">
+                        </mat-form-field>
+                        <mat-form-field>
+                          <mat-label>Roles</mat-label>
+                          <mat-select formControlName="role" [(value)]="selected">
+                            <mat-option value="STAGIAIRE">stagiare</mat-option>
+                            <mat-option value="SENIOR">senior</mat-option>
+                            <mat-option value="JUNIOR">junior</mat-option>
+                          </mat-select>
+                          <mat-hint>You selected: {{selected}}</mat-hint>
+                        </mat-form-field>
+                        </div>
+                        </div>
+                        <div *ngSwitchCase="'vertical'">
+                          <div>
+                            <mat-form-field>
+                              <mat-label>Adress</mat-label>
+                              <input type="text" matInput placeholder="5,Rue Impass Chahrazed,Menzah 4" formControlName="adresse">
+                            </mat-form-field>
+                            <mat-form-field>
+                              <mat-label>Roles</mat-label>
+                              <mat-select formControlName="role" [(value)]="selected">
+                                <mat-option value="STAGIAIRE">stagiare</mat-option>
+                                <mat-option value="SENIOR">senior</mat-option>
+                                <mat-option value="JUNIOR">junior</mat-option>
+                              </mat-select>
+                              <mat-hint>You selected: {{ fourthFormGroup.get('role')?.value }}</mat-hint>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                        <button mat-button color="accent" (click)="register()">Register</button>
+                      </div>
+                      </form>
+                    </mat-step>
+                </mat-stepper>
+            </mat-card-content>
+            <mat-card-actions class="row d-flex justify-content-evenly">
+            <button mat-icon-button color="accent">
+            </button>
+            <button mat-icon-button color="primary">
+            </button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+</div>

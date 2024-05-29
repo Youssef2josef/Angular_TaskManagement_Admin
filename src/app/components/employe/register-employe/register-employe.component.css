@@ -1,0 +1,58 @@
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../../../assets/images/entreprise3.png");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+}
+
+.example-card{
+    width: auto;
+    opacity: 0.3;
+    background-color: rgba(195, 175, 140, 0.274);
+}
+
+.example-card:hover{
+    opacity: 1;
+}
+
+.example-header-image {
+    background-image: url('../../../../assets/images/signup.png');
+    background-size: 100%;
+}
+
+.mat-stepper-s{
+    background-color: antiquewhite;
+}
+.img-card{
+    margin: 0 auto;
+    width: 50%;
+    justify-content: center;
+}
+
+.example-form-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-adresse{
+    width: auto;
+}
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+  }
+  
+.example-input-wrapper {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content:space-evenly;
+}
+mat-form-field{
+
+    margin: 0 2px;
+}

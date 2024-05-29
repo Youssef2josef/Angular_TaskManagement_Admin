@@ -1,0 +1,52 @@
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../../../../assets/images/entreprise3.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.example-card{
+    opacity: 0.3;
+    background-color: rgba(195, 175, 140, 0.274);
+}
+
+.example-card:hover{
+    opacity: 1;
+}
+
+.example-header-image {
+    background-image: url('../../../../assets/images/login.png');
+    background-size: cover;
+}
+
+.example-header-lock {
+    background-image: url('https://img.icons8.com/ios/50/2E9AFE/lock-2.png');
+    background-size: cover;
+    width: 10%;
+    margin: 5px;
+}
+
+.img-card{
+    margin: 0 auto;
+    width: 50%;
+    justify-content: center;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.button-login{
+    width: 40%;
+    margin: auto;
+}
+
+.container-ng-input{
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}

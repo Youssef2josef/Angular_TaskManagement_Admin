@@ -1,0 +1,39 @@
+<mat-toolbar class="mainheader">
+    <mat-toolbar-row>
+  
+      <img src="assets/images/itserv.png" alt="My App Logo" style="width: 10%; height: 50px;" />
+  
+      <p class="brandname"> IT SERV Company</p>
+      <div class="spacer">
+      </div>
+      <div class="time">{{ currentTime }}</div>
+        <img src="https://cdn2.iconfinder.com/data/icons/business-271/141/7-512.png" alt="Boss Avatar" class="boss-avatar">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>apps</mat-icon>
+        </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/admin/dashboard">
+          <mat-icon>person</mat-icon>
+          <span>{{user?.firstName}} {{user?.lastName}}</span>
+        </button>
+        <mat-divider></mat-divider> <!-- Séparateur -->
+        <button mat-menu-item routerLink="/admin/dashboard">
+          <mat-icon>supervisor_account</mat-icon> <!-- Icône "Employees" -->
+          <span>Employees</span>
+        </button>
+        <button mat-menu-item routerLink="/admin/dashboard/managers">
+          <mat-icon>group</mat-icon> <!-- Icône "Managers" -->
+          <span>Managers</span>
+        </button>
+        <mat-divider></mat-divider> <!-- Séparateur -->
+        <button mat-menu-item routerLink="/admin/dashboard/settings">
+          <mat-icon>settings</mat-icon> <!-- Icône de parametre -->
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon><i class="fa-solid fa-right-from-bracket fa-beat-fade fa-xs" style="color: #e10e0e;"></i></mat-icon> <!-- Icône de déconnexion -->
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>

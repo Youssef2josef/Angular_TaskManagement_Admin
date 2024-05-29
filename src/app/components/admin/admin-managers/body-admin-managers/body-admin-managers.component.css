@@ -1,0 +1,50 @@
+  .body {
+    /* width: calc(100% - 5rem); */
+    margin-left: 5rem;
+    z-index: 0;
+    position: relative;
+    top: 0;
+    transition: all 0.5s ease;
+    background: #fff;
+    padding: 3rem;
+  }
+
+  .body-trimmed {
+    /* width: calc(100% - 16.5625rem); */
+    margin-left: 16.5625rem;
+  }
+  
+  .body-md-screen {
+    width: calc(100% - 5rem);
+    margin-left: 5rem;
+  }
+  
+  .mat-elevation-z8 {
+    max-height: 400px;
+    overflow: auto;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  
+  tr.mat-header-row {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 999;
+  }
+  
+  .mat-paginator{
+    margin-bottom: 25px;
+  }
